@@ -1,0 +1,18 @@
+# docker run -d -p 3306:3306 -v ~/Documents/java/marvel/src/main/resources/dockerfiles/mysql/etc/mysql/:/etc/mysql/conf.d -v ~/Documents/java/marvel/src/main/resources/dockerfiles/mysql/var/lib/mysql:/var/lib/mysql --name mysql-developer-image -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=sfg_dev -e MYSQL_USER=sfg_dev_user -e MYSQL_PASSWORD=123 mysql:latest
+
+spring:
+  datasource:
+    platform: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/marvel?useUnicode=true&serverTimezone=UTC&useSSL=false
+    username: rootMy
+    password: root
+  jpa:
+    hibernate:
+    ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    database: mysql
+
+upload:
+  path: src/main/resources/static/images/
